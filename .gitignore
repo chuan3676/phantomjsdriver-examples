@@ -1,1 +1,6 @@
 .gradle/
+phantomjsdriver-examples.iml
+phantomjsdriver-examples.ipr
+phantomjsdriver-examples.iws
+*.log
+out/
