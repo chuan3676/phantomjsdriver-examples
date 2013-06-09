@@ -1,4 +1,4 @@
-package pjsd.examples;
+package tests;
 
 import org.junit.After;
 import org.junit.Before;
@@ -15,11 +15,13 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.Date;
 import java.util.Properties;
 
 /**
- * Tests base class.
- * Takes care of initialising the Remote WebDriver
+ * Base Test Class.
+ * Nothing special: it's a simple way to write basic WebDriver tests and be able to switch
+ * between different Drivers with minimum effort.
  */
 public abstract class BaseTest {
     private WebDriver mDriver                      = null;
@@ -28,6 +30,8 @@ public abstract class BaseTest {
     private static final String DRIVER_FIREFOX     = "firefox";
     private static final String DRIVER_CHROME      = "chrome";
     private static final String DRIVER_PHANTOMJS   = "phantomjs";
+
+    private static long nonScientificTimer;
 
     protected static Properties sConfig;
     protected static DesiredCapabilities sCaps;
@@ -89,10 +93,16 @@ public abstract class BaseTest {
     }
 
     @Before
+    public void testAboutToStart() {
+        resetTimer();
+    }
+
+    @Before
     public void prepareDriver() throws Exception
     {
         // Which driver to use? (default "phantomjs")
         String driver = sConfig.getProperty("driver", DRIVER_PHANTOMJS);
+        System.out.println("* SELECTED DRIVER: " + driver);
 
         // Start appropriate Driver
         if (isUrl(driver)) {
@@ -116,5 +126,18 @@ public abstract class BaseTest {
             mDriver.quit();
             mDriver = null;
         }
+    }
+
+    @After
+    public void testFinished() {
+        System.out.println("* TEST FINISHED IN (ms): " + elapsedSeconds());
+    }
+
+    public void resetTimer() {
+        nonScientificTimer = new Date().getTime();
+    }
+
+    public long elapsedSeconds() {
+        return ((new Date().getTime()) - nonScientificTimer);
     }
 }
