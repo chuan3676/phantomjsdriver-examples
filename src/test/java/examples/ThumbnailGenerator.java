@@ -13,7 +13,6 @@ public class ThumbnailGenerator {
         driver = d;
     }
 
-
     public void setSize(int width, int height) {
         driver.manage().window().setSize(new Dimension(width, height));
     }

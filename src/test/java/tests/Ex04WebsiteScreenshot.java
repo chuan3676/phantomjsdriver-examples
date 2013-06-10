@@ -16,7 +16,7 @@ public class Ex04WebsiteScreenshot extends BaseTest {
         d.get("http://blog.ivandemarino.me");
 
         ThumbnailGenerator tg = new ThumbnailGenerator(d);
-        tg.setSize(800, 300);
+        tg.setSize(800, 200);
         tg.setBackgroundColor("#fff");
 
         try {
