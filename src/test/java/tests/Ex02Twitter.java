@@ -11,7 +11,7 @@ import static org.junit.Assert.assertTrue;
 
 public class Ex02Twitter extends BaseTest {
 
-    private static final String TWITTER_ACCOUNT = "detronizator";
+    private static final String TWITTER_ACCOUNT = "tekmaven ";
 
     @Before
     public void info() {

@@ -57,17 +57,17 @@ public abstract class BaseTest {
         sCaps.setCapability("takesScreenshot", false);
 
 // 01
-//        // Change "User-Agent" via page-object capabilities
-//        sCaps.setCapability(PhantomJSDriverService.PHANTOMJS_PAGE_SETTINGS_PREFIX + "userAgent", "My User Agent - Chrome");
+        // Change "User-Agent" via page-object capabilities
+        sCaps.setCapability(PhantomJSDriverService.PHANTOMJS_PAGE_SETTINGS_PREFIX + "userAgent", "My User Agent - Chrome");
 
 // 02
-//        // Disable "web-security", enable all possible "ssl-protocols" and "ignore-ssl-errors" for PhantomJSDriver
-//        sCaps.setCapability(PhantomJSDriverService.PHANTOMJS_CLI_ARGS, new String[] {
-//            "--web-security=false",
-//            "--ssl-protocol=any",
-//            "--ignore-ssl-errors=true",
-//            "--webdriver-loglevel=DEBUG"
-//        });
+        // Disable "web-security", enable all possible "ssl-protocols" and "ignore-ssl-errors" for PhantomJSDriver
+        sCaps.setCapability(PhantomJSDriverService.PHANTOMJS_CLI_ARGS, new String[] {
+            "--web-security=false",
+            "--ssl-protocol=any",
+            "--ignore-ssl-errors=true",
+            "--webdriver-loglevel=DEBUG"
+        });
 
 // 03 (UPCOMING)
 //        // Control LogLevel for GhostDriver, via CLI arguments
